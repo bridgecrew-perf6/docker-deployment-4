@@ -48,4 +48,11 @@ RUN apt update && apt install -y --no-install-recommends curl gnupg software-pro
     npm config set color false -g &&\
     npm config set color false -g &&\
     npm i -g serverless yarn &&\
-    npm cache clean --force
+    npm cache clean --force &&\
+    echo "PATH="${PATH}"" >> /etc/environment &&\
+    echo "NODE_VERSION="${NODE_VERSION}"" >> /etc/environment &&\
+    echo "NODE_PATH="${NODE_PATH}"" >> /etc/environment &&\
+    echo "NVM_DIR="${NVM_DIR}"" >> //etc/environment &&\
+    echo "TFENV_CURL_OUTPUT="0"" >> /etc/environment &&\
+    echo ". ${NVM_DIR}/nvm.sh" >> /etc/profile.d/cicd.sh &&\
+    echo ". ${NVM_DIR}/nvm.sh" >> /etc/bash.bashrc
